@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ImageGrid } from '@/components/ImageGrid';
-import { CategoryTabs } from '@/components/CategoryTabs';
 
 const CATEGORIES = [
   "Donation Images",
@@ -33,25 +32,23 @@ const IMAGES = {
 };
 
 const Index = () => {
-  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]);
-
   return (
     <div className="min-h-screen bg-secondary/30 p-6">
-      <div className="max-w-7xl mx-auto space-y-8">
+      <div className="max-w-7xl mx-auto space-y-16">
         <h1 className="text-4xl font-bold text-center text-secondary-foreground">
           Image Gallery
         </h1>
         
-        <CategoryTabs
-          categories={CATEGORIES}
-          activeCategory={activeCategory}
-          onCategoryChange={setActiveCategory}
-          className="justify-center"
-        />
-
-        <ImageGrid 
-          images={IMAGES[activeCategory as keyof typeof IMAGES]} 
-        />
+        {CATEGORIES.map((category) => (
+          <section key={category} className="space-y-6">
+            <h2 className="text-3xl font-semibold text-secondary-foreground">
+              {category}
+            </h2>
+            <ImageGrid 
+              images={IMAGES[category as keyof typeof IMAGES]} 
+            />
+          </section>
+        ))}
       </div>
     </div>
   );
