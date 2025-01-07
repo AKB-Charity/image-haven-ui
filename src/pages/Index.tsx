@@ -33,19 +33,28 @@ const IMAGES = {
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-secondary/30 p-6">
-      <div className="max-w-7xl mx-auto space-y-16">
-        <h1 className="text-4xl font-bold text-center text-secondary-foreground">
-          Image Gallery
-        </h1>
+    <div className="min-h-screen bg-gradient-to-b from-secondary/50 to-secondary/20 py-12 px-6">
+      <div className="max-w-7xl mx-auto space-y-20">
+        <header className="text-center space-y-4">
+          <h1 className="text-5xl md:text-6xl font-bold font-display text-secondary-foreground">
+            Image Gallery
+          </h1>
+          <p className="text-lg text-secondary-foreground/80 font-sans max-w-2xl mx-auto">
+            Explore our curated collection of beautiful images across various categories
+          </p>
+        </header>
         
         {CATEGORIES.map((category) => (
-          <section key={category} className="space-y-6">
-            <h2 className="text-3xl font-semibold text-secondary-foreground">
-              {category}
-            </h2>
+          <section key={category} className="space-y-8">
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-display font-semibold text-secondary-foreground inline-block relative">
+                {category}
+                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 rounded-full"></span>
+              </h2>
+            </div>
             <ImageGrid 
               images={IMAGES[category as keyof typeof IMAGES]} 
+              className="px-4"
             />
           </section>
         ))}

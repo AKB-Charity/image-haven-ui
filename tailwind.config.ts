@@ -25,13 +25,22 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#8B5CF6",
+          DEFAULT: "#9b87f5",
           foreground: "#FFFFFF",
         },
         secondary: {
           DEFAULT: "#E5DEFF",
-          foreground: "#222222",
+          foreground: "#333333",
         },
+        accent: {
+          purple: "#8B5CF6",
+          green: "#F2FCE2",
+          yellow: "#FEF7CD",
+        },
+      },
+      fontFamily: {
+        display: ['Playfair Display', 'serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       keyframes: {
         "image-enter": {
